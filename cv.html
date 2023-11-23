@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawaf Mohamad Alenazi - CV</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #ebeaea;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: #bdbdbd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-style: solid;
+            border-radius: 30px;
+        }
+        h1 {
+            font-size: 36px;
+            font-family: Arial, Helvetica, sans-serif;
+            display: inline-block;
+        }
+        .buttons {
+            float: right;
+            display: flex;
+            align-items: center;
+        }
+        .download-button, .dark-mode-label {
+            background-color: #525252;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .download-button:hover, .dark-mode-label:hover {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .dark-mode-toggle {
+            display: none;
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #292929;
+            color: #000000; /* text color */
+        }
+
+        /* text color after dark mode */
+        .dark-mode h1, .dark-mode p, .dark-mode ul, .dark-mode ol, .dark-mode a {
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nawaf Mohamad Alenezi</h1>
+        <div class="buttons">
+            <a href="#" class="download-button" download>Download CV</a>
+            <label class="dark-mode-label" for="dark-mode-toggle">Dark Mode</label>
+            <input type="checkbox" class="dark-mode-toggle" id="dark-mode-toggle">
+        </div>
+        <p>Contact: <a href="mailto:219110973@psu.edu.sa">My email</a> | Riyadh</p>
+
+        <h2>Objective:</h2>
+        <p>Dedicated Bachelor of Computer Science with a focus on Cybersecurity, equipped with knowledge and skills in network security, programming, ethical hacking, and strong communication abilities. Seeking opportunities to contribute to the field of cybersecurity and enhance digital security.</p>
+
+        <h2>Education:</h2>
+        <ul>
+            <li>Bachelor of Computer Science in Cybersecurity Track</li>
+        </ul>
+
+        <h2>Certifications:</h2>
+        <ul>
+                <li>Cisco Introduction to Cyber Security</li>
+                <li>Introduction to MongoDB</li>
+                <li>Mathematics for Machine Learning</li>
+                <li>Ethics of Artifical Intelligence</li>
+                <li>Introducing Security: Aligning Asset and Risk Management</li>
+        </ul>
+
+<h2 style="text-align: center;">Skills:</h2>
+<table border="4" style="margin-left: auto; margin-right: auto;">
+    <thead>
+        <tr>
+            <th>Technical Skills</th>
+            <th>Soft Skills</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Java</td>
+            <td>Work Under Pressure</td>
+        </tr>
+        <tr>
+            <td>JavaScript</td>
+            <td>Good Communication</td>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Teamwork</td>
+        </tr>
+        <tr>
+            <td>PHP</td>
+            <td>Problem-Solving</td>
+        </tr>
+        <tr>
+            <td>NodeJS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+        <h2>Projects:</h2>
+        <ol>
+            <li>Database System for Hospital for CS340 Course</li>
+            <li>Java Project for University System CS102 Course</li>
+            <li>To-Do-List Project for SE201</li>
+        </ol>
+
+        <h2>University Clubs:</h2>
+        <ul>
+            <li>Founder of AutomateX Club</li>
+            <li>R&D of CyberOPS Club (1 year and 6 months)</li>
+        </ul>
+
+        <h2>Volunteer and Extracurricular Activities:</h2>
+        <ul>
+                <li>Attended the 2022 BlackHat Trip as a representative of the CyberOPS Club.</li>
+                <li>Developed a Capture The Flag (CTF) event for CyberOPS Club in 2022.</li>
+                <li>Qualified for the finals in the BlackHat CTF competition 2023, finishing in 72nd place.</li>
+                <li>Conducted Cybersecurity Awareness Sessions for Alinma Bank employees, 2023.</li>
+                <li>Led Cybersecurity Awareness Workshops for the Ministry of Transport and Logistic Services staff, 2023.</li>
+    
+        </ul>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html> 
