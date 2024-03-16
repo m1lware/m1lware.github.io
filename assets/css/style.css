@@ -1,0 +1,36 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    overflow-x: 0;
+    background-color: #212529;
+}
+
+.main-color {
+    color: #0040ff
+}
+
+canvas#c {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.main-banner {
+    height: 100vh;
+}
+
+.main-banner h1 {
+    color: #ffffff;
+    font-size: 72px;
+    font-weight: 500;
+}
+
+.main-banner h1 span {
+    color: #0040ff;
+}
