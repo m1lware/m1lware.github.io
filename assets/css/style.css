@@ -21,6 +21,18 @@ canvas#c {
     height: 100%;
 }
 
+body.light-theme {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.light-theme .main-banner h1, 
+body.light-theme .main-banner h1 span, 
+body.light-theme .buttons a {
+    color: #212529;
+}
+
+
 .main-banner {
     height: 100vh;
     display: flex;
