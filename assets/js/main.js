@@ -52,6 +52,10 @@ window.onload = function() {
             new TxtRotate(elements[i], JSON.parse(toRotate), period);
         }
     }
+    //new theme
+    document.getElementById('toggleTheme').addEventListener('click', function() {
+    document.body.classList.toggle('light-theme');
+});
 
     // Style Injection for Text Rotation
     var css = document.createElement("style");
