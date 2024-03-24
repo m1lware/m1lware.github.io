@@ -10,7 +10,7 @@ body {
 }
 
 .main-color {
-    color: #0040ff
+    color: #0040ff;
 }
 
 canvas#c {
@@ -23,6 +23,10 @@ canvas#c {
 
 .main-banner {
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .main-banner h1 {
@@ -33,4 +37,22 @@ canvas#c {
 
 .main-banner h1 span {
     color: #0040ff;
+}
+
+
+@media (max-width: 768px) {
+    .main-banner h1 {
+        font-size: 36px; 
+    }
+    
+    iframe, .buttons a {
+        width: 90%; 
+        margin: 0 auto; 
+        display: block;
+    }
+    
+    .buttons a {
+        padding: 10px 15px; 
+    }
+    
 }
