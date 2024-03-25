@@ -1,5 +1,4 @@
-
-//This is code Writed by Nawaf, and you're not allowed to copy it :)
+//This code is written by Nawaf, and you're not allowed to copy it :)
 // Text Rotation Function
 var TxtRotate = function(el, toRotate, period) {
     this.toRotate = toRotate;
@@ -42,8 +41,14 @@ TxtRotate.prototype.tick = function() {
     }, delta);
 };
 
-// Initialization of Text Rotation
-window.onload = function() {
+// Style Injection for Text Rotation
+var css = document.createElement("style");
+css.type = "text/css";
+css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+document.body.appendChild(css);
+
+// Initialization of Text Rotation and Digital Rain
+function initialize() {
     var elements = document.getElementsByClassName('txt-rotate');
     for (var i = 0; i < elements.length; i++) {
         var toRotate = elements[i].getAttribute('data-rotate');
@@ -52,21 +57,10 @@ window.onload = function() {
             new TxtRotate(elements[i], JSON.parse(toRotate), period);
         }
     }
-    //new theme
-    document.getElementById('toggleTheme').addEventListener('click', function() {
-    document.body.classList.toggle('light-theme');
-});
 
-    // Style Injection for Text Rotation
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-    document.body.appendChild(css);
-
-    // Call to resize and draw canvas
     resizeCanvas();
     draw();
-};
+}
 
 // Canvas Resizing and Digital Rain
 var c = document.getElementById("c");
@@ -84,7 +78,6 @@ function resizeCanvas() {
     for (var x = 0; x < columns; x++) drops[x] = 1;
 }
 
-// Digital Rain Drawing Function
 function draw() {
     ctx.fillStyle = "rgba(33, 37, 41, .2)";
     ctx.fillRect(0, 0, c.width, c.height);
@@ -102,13 +95,12 @@ function draw() {
     }
 }
 
-// Adjust canvas size when window is resized
-window.onresize = function() {
-    resizeCanvas();
-    // Optionally, clear the canvas and reset the drops when resizing
-    // This avoids visual glitches during resizing
-    draw(); 
-};
+// Listen for resize events
+window.onresize = resizeCanvas;
 
-// Start the animation loop
-setInterval(draw, 33);
+// Initialize everything when the window loads
+window.onload = function() {
+    initialize();
+    // Start the animation loop for the digital rain
+    setInterval(draw, 33);
+};
