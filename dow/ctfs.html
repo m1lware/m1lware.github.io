@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+         <!-- Explore my custom CTF challenges for your next competition or training session. If you're interested in purchasing, feel free to reach out to discuss pricing and options! -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Nawaf CTFS</title>
+    <style>
+        body {
+            background: black;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 0;
+        }
+
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.2;
+        }
+
+        .download-btn {
+            position: relative;
+            padding: 15px 40px;
+            font-size: 20px;
+            color: #0f0;
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #0f0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+            box-shadow: 0 0 10px #0f0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .download-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 255, 0, 0.1),
+                rgba(0, 255, 0, 0.2) 2px,
+                transparent 4px
+            );
+            animation: scanline 2s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(3px, -3px); }
+            60% { transform: translate(-3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 0 20px #0f0, 0 0 40px #0f0;
+            animation: glitch 0.2s infinite;
+        }
+
+        .hacking-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: #0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .hacking-animation.active {
+            opacity: 1;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .flicker {
+            animation: flicker 0.1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-rain"></canvas>
+    <button class="download-btn" onclick="startHacking()">Download</button>
+    <div class="hacking-animation" id="hackingText">Accessing system :)...</div>
+
+    <script>
+        function startHacking() {
+            const hackingText = document.getElementById("hackingText");
+            const button = document.querySelector(".download-btn");
+            button.disabled = true;
+            hackingText.classList.add("active");
+            setTimeout(() => {
+                hackingText.classList.remove("active");
+                hackingText.classList.add("flicker");
+
+                setTimeout(() => {
+                    hackingText.classList.remove("flicker");
+                    const link = document.createElement("a");
+                    link.href = "ctfs.zip";
+                    link.download = "ctfs.zip";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    button.disabled = false;
+                }, 1000);
+            }, 2000);
+        }
+        const canvas = document.querySelector('.matrix-rain');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const characters = 'NawafNAWAFnawaf';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0f0';
+            ctx.font = `${fontSize}px monospace`;
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 50);
+    </script>
+</body>
+</html>
